@@ -116,4 +116,6 @@ Escape character is '^]'.
 ~ # 
 ```
 
-Success! Root access is available and I can modify/play with it all I want which in this case really is just modify /etc/passwd so it doesn't have a default root password that someone else knows while I don't. I wrote a modified /mnt/app/passwd file (which is writeable/persistent under telnet) and edited the start_ipcam.sh script to include ```mount --bind /mnt/app/passwd /etc/passwd``` and restored my NFS settings so now I got a working/protected/rooted device which only I can access (specially since I disabled P2P/Cloud from the web settings).
+## Success! 
+
+Root access is available and I can modify/play with it all I want which in this case really is just modify /etc/passwd so it doesn't have a default root password that someone else knows while I don't. I wrote a modified /mnt/app/passwd file (which is writeable/persistent under telnet) and edited the start_ipcam.sh script to include ```mount --bind /mnt/app/passwd /etc/passwd``` and restored my NFS settings so now I got a working/protected/rooted device which only I can access (specially since I disabled P2P/Cloud from the web settings).
