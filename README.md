@@ -36,7 +36,7 @@ Nmap done: 1 IP address (1 host up) scanned in 0.15 seconds
 
 I was hoping to see telnet enabled so I could try the many published user:password combinations and gain access to the device, and while it was opened all my attempts to find a valid user:password combination were a failure.
 
-So the next thing I noticed is that port 21 (ftp) was opened, but why would anyone need to ftp **into** the device ? I guess they made that so you could download video files from the SD card without having to physically get the SD card out (another feature?) -- In fact I was able to see that the SD card is mounted under /mnt/mmc when a card is inserted. 
+So the next thing I noticed is that port 21 (ftp) was opened, but why would anyone need to ftp **into** the device ? I guess they made that so you could download video files from the SD card without having to physically get the SD card out (another feature?). The web interface user:password worked on the ftp and in fact I was able to see that the SD card is mounted under /mnt/mmc when a card is inserted. 
 
 I then tried accessing /etc and other system directories even using tricks like "../" without success.
 
