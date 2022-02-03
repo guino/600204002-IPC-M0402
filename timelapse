@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# Destination path (images + video)
+DEST=/home/wagner/Desktop/timelapse
+
+# Get first file
+first=$1
+dir=`dirname $first`
+mkdir -p $DEST
+
+# Convert files from the 1st one
+for f in `find $dir -newer $first -name '*.avi'`; do
+ name=`basename $f`
+ if [ ! -e $DEST/${name:0:21}.png ]; then
+  ffmpeg -i $f -vframes 1 $DEST/${name:0:21}.png
+ fi
+done
+
+# Create list of images for video build
+rm -f lst
+for f in `ls -1tr $DEST/*.png`; do 
+ echo "file '$f'" >> lst
+done
+
+# Build video
+ffmpeg -y -r 15 -f concat -safe 0 -i "lst" -c:v libx264 -vf "fps=15,format=yuv420p" "$DEST/timelapse.mp4"
+
+# Cleanup
+rm -f lst
